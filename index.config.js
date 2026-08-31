@@ -1,6 +1,8 @@
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -14,6 +16,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.config.js
@@ -22,88 +32,57 @@ __export(index_config_exports, {
   default: () => index_config_default
 });
 module.exports = __toCommonJS(index_config_exports);
+
+// src/util/network.js
+var import_os = __toESM(require("os"), 1);
+var findIPv4 = (IPInfos) => {
+  return IPInfos?.find((item) => item.family === "IPv4")?.address;
+};
+var getIPAddress = function() {
+  const interfaces = import_os.default.networkInterfaces();
+  return findIPv4(interfaces["en0"]) || findIPv4(interfaces["en1"]) || findIPv4(interfaces["en2"]) || "127.0.0.1";
+};
+
+// src/index.config.js
 var index_config_default = {
   ali: {
-    token: ""
+    token: "",
+    token280: "token280"
   },
   quark: {
     cookie: ""
   },
   uc: {
-    cookie: "",
-    token: ""
+    cookie: "cookie",
+    token: "token",
+    ut: "ut"
   },
   y115: {
-    cookie: "",
-    offline: {
-      savePath: "0",
-      pollAttempts: 6,
-      pollIntervalMs: 1500
-    }
+    cookie: ""
   },
   baidu: {
     cookie: ""
   },
-  tianyi: {
-    username: "",
-    password: ""
-  },
-  pan123: {
-    username: "",
-    password: ""
+  bili: {
+    cookie: ""
   },
   muou: {
-    urls: ["https://123.666291.xyz", "https://666.666291.xyz", "https://www.muou.asia", "https://www.muou.site"]
+    url: ""
   },
   wogg: {
-    urls: ["https://wogg.333232.xyz", "https://wogg.xxooo.cf", "https://woggpan.888484.xyz", "https://www.wogg.lol", "https://www.wogg.one"]
+    url: ""
+  },
+  woniu: {
+    url: ""
   },
   leijing: {
-    urls: ["https://www.leijing1.com", "https://leijing1.com", "https://www.leijing.xyz"]
-  },
-  duoduo: {
-    urls: ["https://tv.214521.xyz", "https://tv.yydsys.cc", "https://tv.yydsys.top"]
-  },
-  zhizhen: {
-    urls: ["http://www.miqk.cc", "https://mihdr.top", "https://www.mihdr.top", "https://www.miqk.cc", "https://www.zhizhenpan.fun", "https://xiaomi666.fun", "https://xiaomiai.site"]
-  },
-  ouge: {
-    urls: ["https://woog.430520.xyz", "https://woog.nxog.eu.org", "https://woog.nxog.fun"]
-  },
-  labi: {
-    urls: ["http://feimo.fun", "http://fmao.shop", "http://fmao.site", "http://xiaocge.fun", "http://xiaocgege.shop", "https://feimao666.fun"]
-  },
-  kuaiying: {
-    urls: ["http://38.76.197.172:12521", "http://xsayang.fun:12512"]
-  },
-  huban: {
-    urls: ["http://38.76.197.172:16969", "http://xhban.xyz:20720"]
-  },
-  erxiao: {
-    urls: ["https://www.2xiaopan.top/", "https://2xiaopan.top/", "https://www.erxiaozhan.top/", "https://www.2xiaozhan.top/", "https://wexwp.cc/"]
-  },
-  shandian: {
-    urls: ["http://shandian.blog", "https://sd.sduc.site"]
-  },
-  wouniu: {
-    urls: ["https://zmi.kdns.fr"]
+    url: ""
   },
   tgsou: {
-    tgPic: true,
+    tgPic: false,
     count: 0,
-    url: "https://tgsou.lmentor.dpdns.org",
-    channelUsername: "tgsearchers7,Aliyun_4K_Movies,bdbdndn11,yunpanx,bsbdbfjfjff,yp123pan,yunpanxunlei,tianyifc,BaiduCloudDisk,txtyzy,peccxinpd,gotopan,PanjClub,baicaoZY,MCPH01,MCPH02,MCPH03,bdwpzhpd,ysxb48,jdjdn1111,yggpan,MCPH086,zaihuayun,Q66Share,ucwpzy,shareAliyun,alyp_1,dianyingshare,Quark_Movies,ydypzyfx,ucquark,xx123pan,yingshifenxiang123,zyfb123,tyypzhpd,tianyirigeng,cloudtianyi,hdhhd21,Lsp115,oneonefivewpfx,qixingzhenren,taoxgzy,Channel_Shares_115,tyysypzypd,vip115hot,wp123zy,yunpan139,yunpan189,yunpanuc,yydf_hzl,leoziyuan,Q_dongman,yoyokuakeduanju,TG654TG,WFYSFX02,QukanMovie,yeqingjie_GJG666,movielover8888_film3,Baidu_netdisk,D_wusun,FLMdongtianfudi,KaiPanshare,QQZYDAPP,rjyxfx,PikPak_Share_Channel,btzhi,newproductsourcing,cctv1211,duan_ju,QuarkFree,yunpanNB,kkdj001,xxzlzn,pxyunpanxunlei,jxwpzy,kuakedongman,liangxingzhinan,xiangnikanj,guoman4K,zdqxm,kduanju,cilidianying,CBduanju,SharePanFilms,dzsgx,BooksRealm,Oscar_4Kmovies,douerpan,baidu_yppan,Q_jilupian,Netdisk_Movies,yunpanquark,ammmziyuan,ciliziyuanku,cili8888,jzmm_123pan,Q_dianying,domgmingapk,dianying4k,q_dianshiju,tgbokee,ucshare,godupan,gokuapan,gimy115,WFYSFX03,peccxin,Movie888035,xlwpzy,zyywpzy,wydwpzy,gimy100,ucshare,gimy115iso,aliyunys,clouddriveresources,XunLeiPinDao,ydwpzy,a123fxme,WPpindao,kuyupan,djya5,yingshiziyuanpindao,zh_vip,pan_guangya,zyzhpd123,zhenyingsg,gdsharing,weichengduanju666,yingxiangkj,duanjucabian,kuakenetpan,kelea555,tianyiyunpanpindao,PikPakShareChannel,tgyy678,xuexixiaonengshou1,google_yppan,ayzgzf"
-  },
-  tgchannel: {
-    url: "https://t.me",
-    count: 4,
-    enableImage: true,
-    homeChannelUsername: ["tgsearchers7", "douerpan"],
-    channelUsername: ["Q66Share", "alyp_TV", "ucpanpan", "ucquark", "tianyirigeng", "hao115", "guaguale115", "ydypzyfx", "tgsearchers6", "NewQuark", "dianyingshare", "XiangxiuNB", "yunpanpan", "kuakeyun", "Quark_Movies", "qixingzhenren", "longzbija", "alyp_4K_Movies", "yunpanshare", "shareAliyun", "alyp_1", "xx123pan"],
-    channelRemark: {
-      tgsearchers7: "资源宇宙",
-      douerpan: "豆儿盘"
-    }
+    url: "",
+    channelUsername: ""
   },
   sites: {
     list: []
@@ -111,32 +90,9 @@ var index_config_default = {
   pans: {
     list: []
   },
-  danmuBuiltin: {
-    enabled: true,
-    host: "127.0.0.1",
-    port: 9321,
-    token: "87654321",
-    autoStart: true
-  },
   danmu: {
-    urls: [
-      { address: "http://127.0.0.1:9321/87654321", name: "内置" },
-      { address: "http://47.107.188.112:6008/87654321", name: "公益1" },
-      { address: "http://ecs.dysobo.cn:9321/87654321", name: "公益2" }
-    ],
-    format: "xml",
-    autoPush: true,
-    autoPushBlacklist: ["bili_all", "bili_official", "88kanqiu", "live"],
-    sourceStrategy: {
-      mode: "builtin_first",
-      publicDelayMs: 500,
-      builtinGraceMs: 900,
-      builtinSearchTimeoutMs: 6e3,
-      publicSearchTimeoutMs: 8e3,
-      builtinContentTimeoutMs: 6e3,
-      publicContentTimeoutMs: 1e4,
-      maxAttempts: 3
-    }
+    urls: [{ address: `http://${getIPAddress()}:9321`, name: "内置" }],
+    autoPush: true
   },
   t4: {
     list: []
@@ -144,94 +100,16 @@ var index_config_default = {
   cms: {
     list: []
   },
-  pansou: {
-    api_urls: "https://so.111651.xyz",
-    channels: "",
-    plugins: "",
-    cloud_types: "",
-    include: "",
-    exclude: "",
-    count: 20,
-    pancheck: "",
-    pancheck_enabled: false,
-    pancheck_mode: "off"
-  },
-  emby: [
-    {
-      name: "embysim服",
-      server: "http://192.168.50.119:8096",
-      username: "emby",
-      password: "1234",
-      deviceName: "Hills Windows",
-      client: "Hills Windows",
-      clientVersion: "0.2.3",
-      enablePlaybackReport: true
-      // 播放进度上报EMBY服务器
-    },
-    {
-      name: "示例",
-      server: "",
-      username: "",
-      password: "",
-      deviceName: "",
-      client: "",
-      clientVersion: "",
-      enablePlaybackReport: false
-    }
-  ],
-  live: [
-    {
-      name: "",
-      url: "",
-      ua: "okhttp/3.15",
-      enabled: true,
-      logoUrl: ""
-    }
-  ],
   alist: [
     {
-      name: "测试",
-      server: "http://118.122.130.22:5678",
-      username: "",
-      password: "",
-      enabled: true
-    }
-  ],
-  alist_tvbox: {
-    base_url: "http://127.0.0.1:4567",
-    token: "",
-    custom_classes: ""
-  },
-  webdav: [
-    {
-      name: "亿苯正经",
-      server: "https://pan.lm379.cn:443",
-      path: "/dav",
-      username: "public_dav",
-      password: "public",
-      enabled: true
+      name: "🐉神族九帝",
+      server: "https://alist.shenzjd.com"
     },
     {
-      name: "追番",
-      server: "https://zhuifan.link:443",
-      path: "/dav",
-      username: "zhuifan",
-      password: "zhuifan",
-      enabled: true
-    },
-    {
-      name: "七米兰",
-      server: "https://al.chirmyram.com",
-      path: "/dav",
-      username: "alist",
-      password: "alist",
-      enabled: true
+      name: "💢repl",
+      server: "https://ali.liucn.repl.co"
     }
   ],
-  bilibili: {
-    cookie: "",
-    classes: ""
-  },
   color: [
     {
       light: {
